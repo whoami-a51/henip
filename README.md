@@ -2,7 +2,7 @@
 
 Henip v1.0
 =============
-Esse script faz uma varredura - utilizando nmap - na rede interna para mapear os dispositivos conectados. útil para sysadmins de redes com muitos dispostivos conectados.
+Esse script faz uma varredura - utilizando nmap - na rede interna para mapear os dispositivos conectados. Útil para sysadmins de redes com muitos dispostivos conectados.
 
 ![descrição](/henip.png)  
 
