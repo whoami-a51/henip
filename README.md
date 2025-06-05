@@ -2,6 +2,12 @@
 
 Henip v1.0
 =============
+Esse script Bash faz uma varredura na rede local para listar os dispositivos conectados, exibindo:
+
+- IP
+- Nome do dispositivo (quando possível)
+
+útil para mapear os dispositivos conectados em uma rede interna.  
 
 ![descrição](/henip.png)  
 
@@ -36,15 +42,6 @@ Desinstalação
 
 Como ele funciona
 -----------
-
-Esse script Bash faz uma varredura na rede local para listar os dispositivos conectados, exibindo:
-
-- IP
-- Nome do dispositivo (quando possível)
-
-É útil, por exemplo, para quem quer saber quem está usando a sua rede Wi-Fi ou simplesmente mapear os dispositivos conectados em uma rede interna.  
-
-🔍 Etapas explicadas:  
 
 1. Identificação da Distribuição Linux  
 ```distro= cat /etc/*-release | grep PRETTY_NAME | cut -d "\"" -f2```  
