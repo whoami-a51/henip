@@ -7,8 +7,6 @@ Esse script Bash faz uma varredura na rede local para listar os dispositivos con
 - IP
 - Nome do dispositivo (quando possível)
 
-útil para mapear os dispositivos conectados em uma rede interna.  
-
 ![descrição](/henip.png)  
 
 Instalação
