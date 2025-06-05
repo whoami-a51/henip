@@ -2,8 +2,7 @@
 
 Henip v1.0
 =============
-Esse script Bash faz uma varredura na rede local para listar os dispositivos conectados, exibindo:
-
+Esse script faz uma varredura na rede interna mapeando os dispositivos conectados, exibindo:
 - IP
 - Nome do dispositivo (quando possível)
 
