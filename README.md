@@ -12,7 +12,7 @@ Atualize sua distro:
  
     $ sudo apt update && sudo apt upgrade && sudo apt dist-upgrade
 
-Verifique se o iptables, git e o make estão instalados:
+Verifique se o git e o nmap estão instalados:
  
     $ sudo apt install git nmap
 
@@ -75,5 +75,5 @@ Tenta identificar o nome NetBIOS (Windows) do dispositivo.
 Se não conseguir, tenta pegar o fabricante da placa de rede pelo MAC address usando o nmap.
 
 8. Exibe os Dados  
-```echo -e " IP\t\t->\tDispositivo"```
+```echo -e " IP\t\t->\tDispositivo"```  
 Mostra uma lista no terminal com todos os IPs conectados e seus respectivos nomes.
