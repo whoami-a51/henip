@@ -1,3 +1,42 @@
+						Welcome to the Henip README file!    
+
+Henip v1.0
+=============
+
+![descrição](/henip.png)  
+
+Instalação
+-----------
+
+Atualize sua distro:
+ 
+    $ sudo apt update && sudo apt upgrade && sudo apt dist-upgrade
+
+Verifique se o iptables, git e o make estão instalados:
+ 
+    $ sudo apt install git nmap
+
+Instale o Henip:
+
+    $ git clone https://github.com/whoami-a51/henip.git
+    $ cd henip/
+    $ sudo make install
+    
+Uso
+----
+
+    $ sudo henkill --help
+
+Desinstalação
+--------------
+
+    $ cd henip/
+    $ sudo make uninstall  
+
+
+Como ele funciona
+-----------
+
 Esse script Bash faz uma varredura na rede local para listar os dispositivos conectados, exibindo:
 
 - IP
