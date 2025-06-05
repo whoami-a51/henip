@@ -1,49 +1,55 @@
 Esse script Bash faz uma varredura na rede local para listar os dispositivos conectados, exibindo:
 
-    IP
+- IP
+- Nome do dispositivo (quando possível)
 
-    Nome do dispositivo (quando possível)
+É útil, por exemplo, para quem quer saber quem está usando a sua rede Wi-Fi ou simplesmente mapear os dispositivos conectados em uma rede interna.  
 
-É útil, por exemplo, para quem quer saber quem está usando a sua rede Wi-Fi ou simplesmente mapear os dispositivos conectados em uma rede interna.
-🔍 Etapas explicadas:
-1. Identificação da Distribuição Linux
+🔍 Etapas explicadas:  
 
-distro=`cat /etc/*-release | grep PRETTY_NAME | cut -d "\"" -f2`
+1. Identificação da Distribuição Linux  
 
-Exibe qual distro você está usando (por exemplo: Debian, Kali, etc.).
-2. Verificação de Conexões Ativas
+```distro= cat /etc/*-release | grep PRETTY_NAME | cut -d "\"" -f2```  
 
-qtdConexoes=`ifconfig -a | grep broadcast -c`
+Exibe qual distro você está usando (por exemplo: Debian, Kali, etc.).  
 
-Verifica quantas interfaces de rede com suporte a broadcast (geralmente as conectadas) existem.
-3. Captura de Interfaces e seus IPs
+2. Verificação de Conexões Ativas  
 
-interfaces=( `...` )
-inets=( `...` )
+```qtdConexoes= ifconfig -a | grep broadcast -c```  
 
-Pega o nome das interfaces (tipo eth0, wlan0, etc.) e os respectivos IPs.
+Verifica quantas interfaces de rede com suporte a broadcast (geralmente as conectadas) existem.    
 
-Se tiver mais de uma interface conectada, o script te pergunta qual interface você quer usar.
-4. Obtém o Gateway e o Prefixo da Rede
+3. Captura de Interfaces e seus IPs  
 
-gateway=${lin[1]}
-prefixo="${octetos[0]}.${octetos[1]}.${octetos[2]}"
+```interfaces=( `...` )```  
+```inets=( `...` )```  
 
-Com isso, ele define o intervalo de IPs a escanear. Por exemplo, se o gateway for 192.168.1.1, ele faz um scan de 192.168.1.0 a 192.168.1.255.
-5. Escaneia IPs Ativos
+Pega o nome das interfaces (tipo eth0, wlan0, etc.) e os respectivos IPs.  
 
-sudo nmap -sP -n -T5 --exclude "$gateway" "$prefixo.0-255"
+Se tiver mais de uma interface conectada, o script te pergunta qual interface você quer usar.  
 
-Usa o nmap para encontrar dispositivos ativos (respostas ao ping).
-6. Obtém Nome dos Dispositivos
+4. Obtém o Gateway e o Prefixo da Rede  
 
-nmblookup -A "$ip"
+```gateway=${lin[1]}```  
+```prefixo="${octetos[0]}.${octetos[1]}.${octetos[2]}"```  
 
-Tenta identificar o nome NetBIOS (Windows) do dispositivo.
+Com isso, ele define o intervalo de IPs a escanear. Por exemplo, se o gateway for 192.168.1.1, ele faz um scan de 192.168.1.0 a 192.168.1.255.  
 
-Se não conseguir, tenta pegar o fabricante da placa de rede pelo MAC address usando o nmap.
-7. Exibe os Dados
+5. Escaneia IPs Ativos  
 
-echo -e " IP\t\t->\tDispositivo"
+```sudo nmap -sP -n -T5 --exclude "$gateway" "$prefixo.0-255"```  
+
+Usa o nmap para encontrar dispositivos ativos (respostas ao ping).  
+
+6. Obtém Nome dos Dispositivos  
+
+```nmblookup -A "$ip"```  
+
+Tenta identificar o nome NetBIOS (Windows) do dispositivo.  
+
+Se não conseguir, tenta pegar o fabricante da placa de rede pelo MAC address usando o nmap.  
+7. Exibe os Dados  
+
+```echo -e " IP\t\t->\tDispositivo"```
 
 Mostra uma lista no terminal com todos os IPs conectados e seus respectivos nomes.
